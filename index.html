@@ -2,6 +2,17 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale-1">
     <style>
+.logo {
+    position: absolute;
+    top: -120;
+    width: 675;
+    height: 500;
+    left: 0;
+    right: -75;
+    margin: auto;
+    display: block;
+}
+
 .image-container {
     position: relative;
     width: 640px;
@@ -9,18 +20,20 @@
     margin-left:auto;
     margin-right:auto;
 }
+
 .image-container .tv {
     position: absolute;
-    top: 0;
+    top: 150;
     left: -325;
     width: 210%;
     height: 200%;
     color: #FFF;
     display: block;
 }
+
 .image-container .playback {
     position: absolute;
-    top: 30px;
+    top: 180px;
     left: -10px;
     width: 120%;
     height: 800px;
@@ -29,7 +42,7 @@
 }
 
 body {
-	background-color: #97977cf5;
+	background-color: #87c7e4f5;
 }
 
 h1 {
@@ -53,8 +66,6 @@ font-family: 'Pinyon Script', cursive;
       transform: translateX(-50%);
       background-color: #ffffff;
       padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
     }
@@ -71,11 +82,12 @@ font-family: 'Pinyon Script', cursive;
 
   </head>
 <body style="text-align:center">
-<h1 id="Ultra">Ultra</h1>
-<h1 id="Nostalgia">Nostalgia</h2>
+<div>
+  <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
+</div>
  
 <div class="image-container">
-  <video autoplay muted class="playback" id="stooges" alt="stooges" src="channelOne/DisorderInTheCourt.mp4"></video>
+  <video autoplay muted class="playback" id="stooges" alt="stooges" src="ChannelOne/DisorderInTheCourt.mp4"></video>
   <img class="tv" id="tv" alt="tv" src="tv.png">
 </div>
 
