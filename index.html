@@ -46,20 +46,39 @@ body {
 }
 
 h1 {
-font-family: 'Raleway';
+font-family: 'Pinyon Script', cursive;
 	color:white;
 	font-size:50px;
 	text-shadow: 2px 2px #000;
 }
 
 h2 {
-font-family: 'Raleway';
+font-family: 'Pinyon Script', cursive;
     color:white;
     font-size:40px;
     text-shadow: 2px 2px #000;
 }
-
 #muteButton {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+}
+#changeVideoButton {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      padding: 10px 20px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+#goBackButton {
       position: absolute;
       bottom: 20px;
       left: 50%;
@@ -70,43 +89,71 @@ font-family: 'Raleway';
       cursor: pointer;
     }
     </style>
-<html>
-  <head>
-  <meta charset="UTF-8">
-  <title>UltraNostalgia</title>
-
-  <meta property="og:site_name" content="UltraNostalgia">
-  <meta property="og:title" content="UltraNostalgia">
-  <meta property="og:image" content="tv.png">
-  <link rel="icon" href="tv.png">
-
-  </head>
+  </style>
+</head>
 <body style="text-align:center">
-<div>
-  <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
-</div>
- 
-<div class="image-container">
-  <video autoplay muted class="playback" id="stooges" alt="stooges" src="ChannelOne/DisorderInTheCourt.mp4"></video>
-  <img class="tv" id="tv" alt="tv" src="tv.png">
-</div>
+  <div>
+    <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
+  </div>
 
-<button id="muteButton">Mute</button>
+  <div class="image-container">
+    <video autoplay muted class="playback" id="stooges" alt="stooges"></video>
+    <img class="tv" id="tv" alt="tv" src="tv.png">
+  </div>
 
-<script>
-  const video = document.getElementById("stooges");
-  const muteButton = document.getElementById("muteButton");
-  function toggleMute() {
-    if (video.muted) {
-      video.muted = false;
-      muteButton.innerText = "Mute";
-    } else {
-      video.muted = true;
-      muteButton.innerText = "Unmute";
+  <button id="muteButton">Unmute</button>
+  <button id="changeVideoButton">Change Video</button>
+  <button id="goBackButton">Go Back</button>
+
+  <script>
+    const video = document.getElementById("stooges");
+    const muteButton = document.getElementById("muteButton");
+    const changeVideoButton = document.getElementById("changeVideoButton");
+    const goBackButton = document.getElementById("goBackButton");
+    const videoList = [
+      "DisorderInTheCourt.mp4",
+      "MaliceInThePalace.mp4",
+      "SingASongofSixPants.mp4",
+      "TheLittleShopOfHorrors.mp4",
+    ];
+
+    let currentVideoIndex = 0;
+
+    function playRandomVideo() {
+      const randomIndex = Math.floor(Math.random() * videoList.length);
+      currentVideoIndex = randomIndex;
+      const randomVideo = videoList[randomIndex];
+      video.src = `ChannelOne/${randomVideo}`;
     }
-  }
-  muteButton.addEventListener("click", toggleMute);
-</script>
 
+    function changeVideo() {
+      currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+      const newVideo = videoList[currentVideoIndex];
+      video.src = `ChannelOne/${newVideo}`;
+    }
+
+    function goBack() {
+      currentVideoIndex = (currentVideoIndex - 1 + videoList.length) % videoList.length;
+      const newVideo = videoList[currentVideoIndex];
+      video.src = `ChannelOne/${newVideo}`;
+    }
+
+    function toggleMute() {
+      if (video.muted) {
+        video.muted = false;
+        muteButton.innerText = "Mute";
+      } else {
+        video.muted = true;
+        muteButton.innerText = "Unmute";
+      }
+    }
+
+    muteButton.addEventListener("click", toggleMute);
+    changeVideoButton.addEventListener("click", changeVideo);
+    goBackButton.addEventListener("click", goBack);
+
+    // Play a random video when the page loads
+    playRandomVideo();
+  </script>
 </body>
 </html>
