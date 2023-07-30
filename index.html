@@ -1,161 +1,160 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale-1">
-    <style>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale-1">
+  <style>
 .logo {
-    position: absolute;
-    top: -120;
-    width: 675;
-    height: 500;
-    left: 0;
-    right: -50;
-    margin: auto;
-    display: block;
+  position: absolute;
+  top: -120;
+  width: 675;
+  height: 500;
+  left: 0;
+  right: -50;
+  margin: auto;
+  display: block;
 }
 
 .image-container {
-    position: relative;
-    width: 640px;
-    height: 480px;
-    margin-left:auto;
-    margin-right:auto;
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .image-container .tv {
-    position: absolute;
-    top: 150;
-    left: -352;
-    width: 210%;
-    height: 200%;
-    color: #FFF;
-    display: block;
+  position: absolute;
+  top: 150;
+  left: -352;
+  width: 210%;
+  height: 200%;
+  color: #FFF;
+  display: block;
 }
 
 .image-container .static {
-    position: absolute;
-    top: 300;
-    left: -50;
-    width: 115%;
-    height: 120%;
-    color: #FFF;
-    display: block;
+  position: absolute;
+  top: 300;
+  left: -50;
+  width: 115%;
+  height: 120%;
+  color: #FFF;
+  display: block;
 }
 
 .image-container .playback {
-    position: absolute;
-    top: 180px;
-    left: -30px;
-    width: 120%;
-    height: 800px;
-    color: #FFF;
-    display: block;
+  position: absolute;
+  top: 180px;
+  left: -30px;
+  width: 120%;
+  height: 800px;
+  color: #FFF;
+  display: block;
 }
 
 body {
-	background-color: #87c7e4f5;
+background-color: #87c7e4f5;
 }
 
 h1 {
 font-family: 'Pinyon Script', cursive;
-	color:white;
-	font-size:50px;
-	text-shadow: 2px 2px #000;
+color:white;
+font-size:50px;
+text-shadow: 2px 2px #000;
 }
 
 h2 {
 font-family: 'Pinyon Script', cursive;
-    color:white;
-    font-size:40px;
-    text-shadow: 2px 2px #000;
+  color:white;
+  font-size:40px;
+  text-shadow: 2px 2px #000;
 }
 #muteButton {
-      position: absolute;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ffffff;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #changeVideoButton {
-      position: absolute;
-      bottom: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ffffff;
-      padding: 10px 20px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    </style>
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
   </style>
+</style>
 </head>
 <body style="text-align:center">
-  <div>
-    <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
-  </div>
+<div>
+  <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
+</div>
 
 
-  <div class="image-container">
-    <img class="static" id="static" alt="static" src="static.jpg">
-    <video autoplay muted class="playback" id="stooges" alt="stooges"></video>
-    <img class="tv" id="tv" alt="tv" src="tv.png">
-  </div>
+<div class="image-container">
+  <img class="static" id="static" alt="static" src="static.jpg">
+  <video autoplay muted class="playback" id="stooges" alt="stooges"></video>
+  <img class="tv" id="tv" alt="tv" src="tv.png">
+</div>
 
-  <audio id="changesound" src="bzzt.mp3" preload="auto"></audio>
-  <button id="muteButton">Unmute</button>
-  <button id="changeVideoButton" onclick="document.getElementById('changesound').play();">Change Video</button>
+<audio id="changesound" src="bzzt.mp3" preload="auto"></audio>
+<button id="muteButton">Unmute</button>
+<button id="changeVideoButton" onclick="document.getElementById('changesound').play();">Change Video</button>
 
-  <script>
-    const video = document.getElementById("stooges");
-    const muteButton = document.getElementById("muteButton");
-    const changeVideoButton = document.getElementById("changeVideoButton");
-    const goBackButton = document.getElementById("goBackButton");
-    const videoList = [
-      "DisorderInTheCourt.mp4",
-      "MaliceInThePalace.mp4",
-      "SingASongofSixPants.mp4",
-      "TheAndyGriffithShowS03E01.mp4",
-      "TheAndyGriffithShowS03E02.mp4",
-      "TheAndyGriffithShowS03E03.mp4",
-      "TheAndyGriffithShowS03E04mp4.mp4",
-      "TheBeverlyHillbilliesS01E01.mp4",
-      "TheBeverlyHillbilliesS01E02.mp4",
-      "TheBeverlyHillbilliesS01E03.mp4",
-      "TheBeverlyHillbilliesS01E04.mp4",
-    ];
+<script>
+  const video = document.getElementById("stooges");
+  const muteButton = document.getElementById("muteButton");
+  const changeVideoButton = document.getElementById("changeVideoButton");
+  const goBackButton = document.getElementById("goBackButton");
+  const videoList = [
+    "DisorderInTheCourt.mp4",
+    "MaliceInThePalace.mp4",
+    "SingASongofSixPants.mp4",
+    "TheAndyGriffithShowS03E01.mp4",
+    "TheAndyGriffithShowS03E02.mp4",
+    "TheAndyGriffithShowS03E03.mp4",
+    "TheAndyGriffithShowS03E04mp4.mp4",
+    "TheBeverlyHillbilliesS01E01.mp4",
+    "TheBeverlyHillbilliesS01E02.mp4",
+    "TheBeverlyHillbilliesS01E03.mp4",
+    "TheBeverlyHillbilliesS01E04.mp4",
+  ];
 
-    let currentVideoIndex = 0;
+  let currentVideoIndex = 0;
 
-    function playRandomVideo() {
-      const randomIndex = Math.floor(Math.random() * videoList.length);
-      currentVideoIndex = randomIndex;
-      const randomVideo = videoList[randomIndex];
-      video.src = `ChannelOne/${randomVideo}`;
+  function playRandomVideo() {
+    const randomIndex = Math.floor(Math.random() * videoList.length);
+    currentVideoIndex = randomIndex;
+    const randomVideo = videoList[randomIndex];
+    video.src = `ChannelOne/${randomVideo}`;
+  }
+
+  function changeVideo() {
+    currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+    const newVideo = videoList[currentVideoIndex];
+    video.src = `ChannelOne/${newVideo}`;
+  }
+
+  function toggleMute() {
+    if (video.muted) {
+      video.muted = false;
+      muteButton.innerText = "Mute";
+    } else {
+      video.muted = true;
+      muteButton.innerText = "Unmute";
     }
+  }
 
-    function changeVideo() {
-      currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
-      const newVideo = videoList[currentVideoIndex];
-      video.src = `ChannelOne/${newVideo}`;
-    }
+  muteButton.addEventListener("click", toggleMute);
+  changeVideoButton.addEventListener("click", playRandomVideo);
 
-    function toggleMute() {
-      if (video.muted) {
-        video.muted = false;
-        muteButton.innerText = "Mute";
-      } else {
-        video.muted = true;
-        muteButton.innerText = "Unmute";
-      }
-    }
-
-    muteButton.addEventListener("click", toggleMute);
-    changeVideoButton.addEventListener("click", playRandomVideo);
-
-    playRandomVideo();
-  </script>
+  playRandomVideo();
+</script>
 </body>
-</html>
