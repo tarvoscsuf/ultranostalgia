@@ -31,6 +31,16 @@
     display: block;
 }
 
+.image-container .static {
+    position: absolute;
+    top: 300;
+    left: -50;
+    width: 115%;
+    height: 120%;
+    color: #FFF;
+    display: block;
+}
+
 .image-container .playback {
     position: absolute;
     top: 180px;
@@ -68,6 +78,7 @@ font-family: 'Pinyon Script', cursive;
       font-size: 16px;
       cursor: pointer;
 }
+
 #changeVideoButton {
       position: absolute;
       bottom: 60px;
@@ -78,16 +89,6 @@ font-family: 'Pinyon Script', cursive;
       font-size: 12px;
       cursor: pointer;
     }
-#goBackButton {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ffffff;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
     </style>
   </style>
 </head>
@@ -96,14 +97,16 @@ font-family: 'Pinyon Script', cursive;
     <img class="logo" src="ultranostalgia_jazz_nobacking.png" alt="Logo">
   </div>
 
+
   <div class="image-container">
+    <img class="static" id="static" alt="static" src="static.jpg">
     <video autoplay muted class="playback" id="stooges" alt="stooges"></video>
     <img class="tv" id="tv" alt="tv" src="tv.png">
   </div>
 
+  <audio id="changesound" src="bzzt.mp3" preload="auto"></audio>
   <button id="muteButton">Unmute</button>
-  <button id="changeVideoButton">Change Video</button>
-  <button id="goBackButton">Go Back</button>
+  <button id="changeVideoButton" onclick="document.getElementById('changesound').play();">Change Video</button>
 
   <script>
     const video = document.getElementById("stooges");
@@ -139,12 +142,6 @@ font-family: 'Pinyon Script', cursive;
       video.src = `ChannelOne/${newVideo}`;
     }
 
-    function goBack() {
-      currentVideoIndex = (currentVideoIndex - 1 + videoList.length) % videoList.length;
-      const newVideo = videoList[currentVideoIndex];
-      video.src = `ChannelOne/${newVideo}`;
-    }
-
     function toggleMute() {
       if (video.muted) {
         video.muted = false;
@@ -157,9 +154,7 @@ font-family: 'Pinyon Script', cursive;
 
     muteButton.addEventListener("click", toggleMute);
     changeVideoButton.addEventListener("click", playRandomVideo);
-    goBackButton.addEventListener("click", goBack);
 
-    // Play a random video when the page loads
     playRandomVideo();
   </script>
 </body>
